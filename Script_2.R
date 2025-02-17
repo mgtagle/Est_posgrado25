@@ -25,3 +25,29 @@ stem(ocampo$TEMP)
 boxplot(ocampo$VELR)
 
 vivero <- read.csv("vivero.csv", header = T)
+vivero$Tratamiento <- as.factor(vivero$Tratamiento)
+boxplot(vivero$IE ~ vivero$Tratamiento)
+
+# Revisar la normalidad de los datos IE
+
+shapiro.test(vivero$IE)
+ctrl <- subset(vivero$IE, vivero$Tratamiento == "Ctrl")
+fert <- subset(vivero$IE, vivero$Tratamiento != "Ctrl")
+var(ctrl)
+var(fert)
+# Revisar homogeneidad de varianzas
+bartlett.test(vivero$IE ~ vivero$Tratamiento)
+
+
+t.test(vivero$IE~ vivero$Tratamiento, var.equal = F)
+
+t.test(vivero$IE~ vivero$Tratamiento, paired =T)
+
+# Pruebas dependientes
+
+t.test(vivero$IE ~ vivero$Tratamiento, paired = T)
+
+
+# t.test una sola muestra
+
+t.test(vivero$IE, mu = 0.90)
