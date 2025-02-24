@@ -36,9 +36,9 @@ boxplot(localidad$sqrt ~ localidad$Paraje,
         xlab = "Parajes",
         ylab = "DAP (cm)")
 text(1,7, "b")
-text(2,7, "c")
-text(3,7, "a")
-text(4,7, "bc")
+text(2,6.2, "c")
+text(3,7.7, "a")
+text(4,8, "bc")
 mtext("Mediciones", side = 4)
 
 # Para agregar las letras para la diferenciación podemos utilizar
